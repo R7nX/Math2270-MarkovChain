@@ -46,5 +46,7 @@ def calc_steady_state(matrix, initial, steps):
 
 
 if __name__ == '__main__':
-    print(calc_steady_state(graph_matrix, "A", 100000))
+    steady_state_vector = calc_steady_state(graph_matrix, "A", 100000)
+
+    print(f"The estimated steady_state_distribution for 100000 steps: {steady_state_vector}" )
 
