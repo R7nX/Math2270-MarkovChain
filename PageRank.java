@@ -36,12 +36,12 @@ public class PageRank {
             String page = pages.get(j);
             Map<String, Double> outlinks = links.get(page);
             if (outlinks == null || outlinks.isEmpty()) {
-                // Dangling node: distribute uniformly.
+               
                 for (int i = 0; i < N; i++) {
                     pageMatrix[i][j] = 1.0 / N;
                 }
             } else {
-                // Normalize weights: sum all weights for the current page.
+               
                 double totalWeight = 0.0;
                 for (double weight : outlinks.values()) {
                     totalWeight += weight;
@@ -76,7 +76,7 @@ public class PageRank {
             System.arraycopy(newRank, 0, qMatrix, 0, N);
         }
 
-        // Build and sort the result list.
+        
         List<PageRank> result = new ArrayList<>();
         for (int i = 0; i < N; i++) {
             result.add(new PageRank(pages.get(i), qMatrix[i]));
@@ -106,9 +106,6 @@ public class PageRank {
         for (PageRank page: weightedRanks) {
             System.out.println(page);
         }
-
-        // To explore the effect of the damping factor, change the 'damping_factor'
-        // constant in the PageRank class (for example, try 0.5 or 0.9) and re-run.
     }
     }
 
